@@ -200,7 +200,7 @@ class GetMailToken(APIView):
 
     def get(self, request):
         emailid = request.GET.get("emailid", None)
-        user_email = emailid + '@xxx.com'
+        user_email = emailid
         ip = request.META['REMOTE_ADDR']
         token = md5(emailid)
         try:
