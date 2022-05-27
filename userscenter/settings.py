@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'userscenter.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'zk_usercenter',  # Or path to database file if using sqlite3.
-        'USER': 'zkucentuser',  # Not used with sqlite3.
-        'PASSWORD': '2cI@proX',  # Not used with sqlite3.
-        'HOST': '10.5.4.243',  # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '33891',
+        'NAME': '',  # Or path to database file if using sqlite3.
+        'USER': '',  # Not used with sqlite3.
+        'PASSWORD': '',  # Not used with sqlite3.
+        'HOST': '',  # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',
     }
 }
 
