@@ -7,6 +7,7 @@ from utils.ldap_mad import *
 from django.core.mail import send_mail
 import requests
 from django.utils.decorators import method_decorator
+from django.conf import settings
 
 RES = {'code': 20000, 'data': '', 'message': 'success'}
 
@@ -213,7 +214,7 @@ class GetMailToken(APIView):
         send_mail(
             subject='域账号邮箱验证码',
             message='您的验证码为: {}'.format(token),
-            from_email='xxx@qq.com', # 发件人邮箱地址
+            from_email=settings.EMAIL_HOST_USER,  # 发件人邮箱地址
             recipient_list=[user_email],
             fail_silently=False
         )
