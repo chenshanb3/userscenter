@@ -175,11 +175,12 @@ class UpdatePwd(APIView):
         emailid = request.data.get("emailid", None)
         password = request.data.get("password", None)
         ip = request.META['REMOTE_ADDR']
-        user_email = emailid + '@izkml.com'
+        user_email = emailid
+        userid = str(emailid).split('@')[0]
         token = MailToken.objects.get(email=user_email)
         if token.token == mailtoken and token.apply_ip == ip:
             lt = LdapMadTools()
-            if lt.ldap_update_password(uid=emailid, pwd=password):
+            if lt.ldap_update_password(uid=userid, pwd=password):
                 return Response(RES)
             # try:
             #     user = UserProfile.objects.get(userid=emailid)
